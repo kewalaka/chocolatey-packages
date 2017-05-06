@@ -1,4 +1,4 @@
-$packageName = 'tableau-desktop'
+$packageName = 'tableaudesktop'
 
 $packageArgs = @{
   packageName   = $packageName
