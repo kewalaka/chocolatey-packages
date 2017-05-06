@@ -7,7 +7,7 @@
     <authors>Tableau Software</authors>
     <owners>Stu Mace</owners>
     <projectUrl>https://www.tableau.com/products/reader</projectUrl>
-    <iconUrl>https://github.com/kewalaka/chocolatey-packages/tableaureader/raw/master/tableaulogo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/kewalaka/chocolatey-packages/master/tableaureader/tableaulogo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Tableau Reader is a free desktop application that you can use to open and interact with data visualizations built in Tableau Desktop</description>
     <summary>Tableau Reader 10.2.1

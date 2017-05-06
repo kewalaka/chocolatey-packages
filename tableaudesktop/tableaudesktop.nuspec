@@ -7,7 +7,7 @@
     <authors>Tableau Software</authors>
     <owners>Stu Mace</owners>
     <projectUrl>https://www.tableau.com/products/desktop</projectUrl>
-    <iconUrl>https://github.com/kewalaka/chocolatey-packages/tableaudesktop/raw/master/tableaulogo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/kewalaka/chocolatey-packages/master/tableaudesktop/tableaulogo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Tableau Desktop is data visualization software that lets you see and understand data in minutes.</description>
     <summary>Tableau Reader 10.2.1
