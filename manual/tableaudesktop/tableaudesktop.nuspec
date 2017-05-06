@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>tableaudesktop</id>
+    <version>10.2.1.0</version>
+    <title>Tableau Desktop</title>
+    <authors>Tableau Software</authors>
+    <owners>Stu Mace</owners>
+    <projectUrl>https://www.tableau.com/products/desktop</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/kewalaka/chocolatey-packages/master/tableaudesktop/tableaulogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>14 day trial of Tableau Desktop - a data visualization software that lets you see and understand data in minutes.</description>
+    <summary>Tableau Reader 10.2.1
+    This is a 14 day trial, a license will be required to continue using the software after that point.
+    Tableau Desktop is data visualization software that lets you see and understand data in minutes.
+    See and understand your data with Tableau.  Create and share data insights across your company in minutes.
+    </summary>
+    <releaseNotes />
+    <tags>Tableau</tags>
+  </metadata>
+</package>
