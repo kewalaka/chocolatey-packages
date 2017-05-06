@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>tableau-reader</id>
+    <version>10.2.1.0</version>
+    <title>Tableau Reader</title>
+    <authors>Tableau Software</authors>
+    <owners>Stu Mace</owners>
+    <projectUrl>https://www.tableau.com/products/reader</projectUrl>
+    <iconUrl>https://github.com/kewalaka/chocolatey-packages/tableau-reader/raw/master/tableaulogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Tableau Reader is a free desktop application that you can use to open and interact with data visualizations built in Tableau Desktop</description>
+    <summary>Tableau Reader 10.2.1
+  Tableau Reader is a free desktop application that you can use to open and interact with data visualizations built in Tableau Desktop.</summary>
+    <releaseNotes />
+    <tags>Tableau</tags>
+  </metadata>
+</package>
