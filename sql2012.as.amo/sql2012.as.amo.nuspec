@@ -7,7 +7,7 @@
         <authors>Microsoft</authors>
         <owners>Stu Mace</owners>
         <projectUrl>https://www.microsoft.com/en-us/download/details.aspx?id=49999</projectUrl>
-        <iconUrl>https://github.com/kewalaka/chocolatey-packages/sql2012.as.amo/raw/master/SQL2012.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/kewalaka/chocolatey-packages/master/sql2012.as.amo/SQL2012.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Analysis Management Objects (AMO) is a .NET Framework object model that enables software developers to create client-side applications to manage and administer Analysis Services objects.</description>
         <summary>Microsoft SQL Server 2012 Feature Pack SP 3
