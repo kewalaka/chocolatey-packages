@@ -16,7 +16,7 @@ $packageArgs = @{
   checksum64             = $checksum64
   checksumType           = 'sha256'
   checksumType64         = 'sha256'
-  validExitCodes         = @(0, 3010, 1641);
+  validExitCodes         = @(0, 3010, 1641)
   registryUninstallerKey = 'Tableau Reader*'
 }
 
@@ -26,4 +26,4 @@ $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
 if ($installLocation)  {
     Write-Host "$packageName installed to '$installLocation'"
 }
-else { Write-Warning "Can't find $PackageName install location" }
+else { Write-Warning "Can't find $packageName install location" }
