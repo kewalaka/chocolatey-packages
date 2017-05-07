@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+    <metadata>
+        <id>fmedesktop</id>
+        <version>2017.0.1.17288</version>
+        <title>FME Desktop</title>
+        <authors>Safe Software</authors>
+        <owners>Stu Mace</owners>
+        <projectUrl>https://www.safe.com/fme/fme-desktop/</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/kewalaka/chocolatey-packages/master/icons/safe-software-logo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>30 day trial of FME Desktop - the all-in-one tool for data integration and productivity.</description>
+        <summary>FME Desktop 2017.0.1 build 17288
+
+            This will install the trial version of FME Desktop, a license is required after 30 days.
+            
+            Work with all of your data in one central spot. FME Desktop lets you input data from hundreds of sources and output to hundreds more. 
+            Convert data from A to B, perform complicated enterprise integrations, or simplify a tedious task. It's all easy with FME.
+            
+            FME Desktop also includes 475+ data transformers, giving you complete control over the content, structure, and style of your data. 
+            Plus, no tool is better able to handle the complexity of spatial data.</summary>
+        <releaseNotes />
+        <tags>FME GIS spatial transformation</tags>
+    </metadata>
+</package>
