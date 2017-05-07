@@ -1,8 +1,23 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-$packageName = 'fmedesktop'
-$url32       = 'https://downloads.safe.com/fme/2017/fme-desktop-2017.0-b17288-win-x86.msi'
-$url64       = 'https://downloads.safe.com/fme/2017/fme-desktop-2017.0-b17288-win-x64.msi'
+# getting the latest version via bintray
+
+$base_uri = 'https://api.bintray.com'
+$account = $repository = 'cryptomator'
+$package = 'cryptomator-win'
+$url = "$base_uri/packages/$account/$repository/$package" + "?attribute_values=1"
+$packageDetails = Invoke-WebRequest $url
+if ($packageDetails.StatusCode -eq 200)
+{
+  # use regex to only select versions that include 3 groups of digits separated by dots (this avoids releases that end with -rc or similiar)
+  $regex = '^(\d+\.)?(\d+\.)?(\*|\d+)$'
+  # get the latest version that matches
+  $version = ($packageDetails.Content | ConvertFrom-Json).Versions | where {$_ -match $regex} | select -first 1
+}
+
+$packageName = 'cryptomator'
+$url32       = ''
+$url64       = ''
 $checksum32  = ''
 $checksum64  = ''
  
