@@ -20,7 +20,7 @@ $packageArgs = @{
   registryUninstallerKey = 'Microsoft SQL Server 2012 Analysis Management Objects'
 }
 
-Install-ChocolateyPackage @params
+Install-ChocolateyPackage @packageArgs
 
 $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
 if ($installLocation)  {
@@ -36,7 +36,7 @@ if (Get-ProcessorBits -eq 64) {
   $packageArgs['checksumType64'] = 'sha256'
   $packageArgs['registryUninstallerKey'] = 'Microsoft SQL Server 2012 Analysis Management Objects (x64)'
 
-  Install-ChocolateyPackage @params
+  Install-ChocolateyPackage @packageArgs
 
   $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
   if ($installLocation)  {
