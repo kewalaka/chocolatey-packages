@@ -20,7 +20,7 @@ $packageArgs = @{
   registryUninstallerKey = 'Tableau Reader*'
 }
 
-Install-ChocolateyPackage @params
+Install-ChocolateyPackage @packageArgs
 
 $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
 if ($installLocation)  {
