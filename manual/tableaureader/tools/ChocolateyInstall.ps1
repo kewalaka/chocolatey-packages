@@ -7,7 +7,7 @@ $checksum32  = ''
 $checksum64  = '22C8B4E3C19C1EFC787280F93B63EC9873550021CE22E8EC8D8ECF5223D67574'
 
 $packageArgs = @{
-  packageName            = $packageName;
+  packageName            = $packageName
   fileType               = 'msi'; #only one of these: exe, msi, msu
   silentArgs             = "/install /quiet /norestart /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`" ACCEPTEULA=1"
   url                    = $url32
@@ -16,7 +16,7 @@ $packageArgs = @{
   checksum64             = $checksum64
   checksumType           = 'sha256'
   checksumType64         = 'sha256'
-  validExitCodes         = @(0, 3010, 1641);
+  validExitCodes         = @(0, 3010, 1641)
   registryUninstallerKey = 'Tableau Reader*'
 }
 

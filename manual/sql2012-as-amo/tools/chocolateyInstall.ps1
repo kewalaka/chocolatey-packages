@@ -10,10 +10,10 @@ $checksum64  = '599095ACB9E9B1DE50891426A648410AFC0549EC334412CBEACD226EF9EFC066
 
 # start with the 32bit version
 $packageArgs = @{
-  packageName  = $packageName;
-  fileType     = 'msi';
-  silentArgs   = "/qn /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`"";
-  url          = $url32;
+  packageName  = $packageName
+  fileType     = 'msi'
+  silentArgs   = "/qn /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`""
+  url          = $url32
   checksum     = $checksum32
   checksumType ='sha256'
   validExitCodes         = @(0)
@@ -26,7 +26,7 @@ $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
 if ($installLocation)  {
     Write-Host "$packageName (32bit) installed to '$installLocation'"
 }
-else { Write-Warning "Can't find $PackageName (32bit) install location" }
+else { Write-Warning "Can't find $packageName (32bit) install location" }
 
 # only install the 64bit version if the system supports it
 if (Get-ProcessorBits -eq 64) {
@@ -42,5 +42,5 @@ if (Get-ProcessorBits -eq 64) {
   if ($installLocation)  {
       Write-Host "$packageName installed (64bit) to '$installLocation'"
   }
-  else { Write-Warning "Can't find $PackageName (64bit) install location" }
+  else { Write-Warning "Can't find $packageName (64bit) install location" }
 }
