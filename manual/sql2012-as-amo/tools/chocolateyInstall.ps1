@@ -17,16 +17,14 @@ $packageArgs = @{
   checksum     = $checksum32
   checksumType ='sha256'
   validExitCodes         = @(0)
-  registryUninstallerKey = 'Microsoft SQL Server 2012 Analysis Management Objects'
 }
 
 Install-ChocolateyPackage @packageArgs
 
-$installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
-if ($installLocation)  {
-    Write-Host "$packageName (32bit) installed to '$installLocation'"
-}
-else { Write-Warning "Can't find $packageName (32bit) install location" }
+# Note - not possible to use Get-AppInstallLocation to confirm successful, because Microsft uses the same name for both the 32bit and 64bit versions
+
+# 32bit DONE.
+
 
 # only install the 64bit version if the system supports it
 if (Get-ProcessorBits -eq 64) {
@@ -38,9 +36,7 @@ if (Get-ProcessorBits -eq 64) {
 
   Install-ChocolateyPackage @packageArgs
 
-  $installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
-  if ($installLocation)  {
-      Write-Host "$packageName installed (64bit) to '$installLocation'"
-  }
-  else { Write-Warning "Can't find $packageName (64bit) install location" }
+  # Note - not possible to use Get-AppInstallLocation to confirm successful, because Microsft uses the same name for both the 32bit and 64bit versions
+
+  # 64bit DONE.
 }
