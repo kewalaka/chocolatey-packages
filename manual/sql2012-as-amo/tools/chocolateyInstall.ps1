@@ -25,7 +25,6 @@ Install-ChocolateyPackage @packageArgs
 
 # 32bit DONE.
 
-
 # only install the 64bit version if the system supports it
 if (Get-ProcessorBits -eq 64) {
   $packageArgs['url'] = ''
@@ -38,5 +37,4 @@ if (Get-ProcessorBits -eq 64) {
 
   # Note - not possible to use Get-AppInstallLocation to confirm successful, because Microsft uses the same name for both the 32bit and 64bit versions
 
-  # 64bit DONE.
 }

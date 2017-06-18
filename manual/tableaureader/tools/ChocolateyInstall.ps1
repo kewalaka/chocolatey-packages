@@ -7,7 +7,7 @@ $checksum32  = ''
 $checksum64  = '22C8B4E3C19C1EFC787280F93B63EC9873550021CE22E8EC8D8ECF5223D67574'
 
 $packageArgs = @{
-  packageName            = $packageName;
+  packageName            = $packageName
   fileType               = 'msi'; #only one of these: exe, msi, msu
   silentArgs             = "/install /quiet /norestart /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`" ACCEPTEULA=1"
   url                    = $url32
