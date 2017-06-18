@@ -1,38 +1,17 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-# getting the latest version via bintray
-
-$base_uri = 'https://api.bintray.com'
-$account = $repository = 'cryptomator'
-$package = 'cryptomator-win'
-$url = "$base_uri/packages/$account/$repository/$package" + "?attribute_values=1"
-$packageDetails = Invoke-WebRequest $url
-if ($packageDetails.StatusCode -eq 200)
-{
-  # use regex to only select versions that include 3 groups of digits separated by dots (this avoids releases that end with -rc or similiar)
-  $regex = '^(\d+\.)?(\d+\.)?(\*|\d+)$'
-  # get the latest version that matches
-  $version = ($packageDetails.Content | ConvertFrom-Json).Versions | where {$_ -match $regex} | select -first 1
-}
-
-$packageName = 'cryptomator'
-$url32       = ''
-$url64       = ''
-$checksum32  = ''
-$checksum64  = ''
- 
 $packageArgs = @{
-  packageName            = $packageName
-  fileType               = 'msi'
-  url                    = $url32
-  url64bit               = $url64
-  checksum               = $checksum32
-  checksum64             = $checksum64
+  packageName            = 'cryptomator'
+  fileType               = 'exe'
+  url                    = 'https://bintray.com/cryptomator/cryptomator/download_file?file_path=Cryptomator-1.2.3-x86.exe'
+  url64bit               = 'https://bintray.com/cryptomator/cryptomator/download_file?file_path=Cryptomator-1.2.3-x64.exe'
+  checksum               = '2a375317a4850c42447e62bee623ed57f0187be029fac510aa36bbaecbdb9b66'
+  checksum64             = '9732168a48506353f0a9fb1fb01f5e70a5fa113eb47a05f04db05f4c8b6ffbbf'
   checksumType           = 'sha256'
   checksumType64         = 'sha256'
-  silentArgs             = "/qn INSTALLLEVEL=3 /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`""
+  silentArgs             = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
   validExitCodes         = @(0)
-  registryUninstallerKey = 'FME Desktop'
+  registryUninstallerKey = 'Cryptomator'
 }
 Install-ChocolateyPackage @packageArgs
  

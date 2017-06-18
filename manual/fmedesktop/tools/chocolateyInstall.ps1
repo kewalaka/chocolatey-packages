@@ -15,7 +15,7 @@ $packageArgs = @{
   checksum64             = $checksum64
   checksumType           = 'sha256'
   checksumType64         = 'sha256'
-  silentArgs             = "/qn INSTALLLEVEL=3 /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`""
+  silentArgs             = "/VERYSILENT /qn INSTALLLEVEL=3 /log `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log`""
   validExitCodes         = @(0)
   registryUninstallerKey = 'FME Desktop'
 }
