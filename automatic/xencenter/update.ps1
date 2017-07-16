@@ -3,12 +3,8 @@ import-module au
 function global:au_SearchReplace {
    @{
         ".\tools\chocolateyInstall.ps1" = @{
-            "(?i)(^\s*url\s*=\s*)('.*')"          = "`$1'$($Latest.URL32)'"
             "(?i)(^\s*url64bit\s*=\s*)('.*')"     = "`$1'$($Latest.URL64)'"
-            "(?i)(^\s*checksum\s*=\s*)('.*')"     = "`$1'$($Latest.Checksum32)'"
             "(?i)(^\s*checksum64\s*=\s*)('.*')"   = "`$1'$($Latest.Checksum64)'"
-            "(?i)(^\s*packageName\s*=\s*)('.*')"  = "`$1'$($Latest.PackageName)'"
-            "(?i)(^\s*fileType\s*=\s*)('.*')"     = "`$1'$($Latest.FileType)'"
         }
     }
 }
@@ -22,10 +18,13 @@ function global:au_GetLatest {
 
     if ($downloadpage.StatusCode -eq 200)
     {
-        $url64 = ($downloadpage.AllElements | where rel -like '*XenCenterSetup.exe').rel
+        $url64 = ($downloadpage.AllElements | Where-Object rel -like '*XenCenterSetup.exe').rel
         $version = ($url64.split('/') | Select-Object -last 1).split('-')[1]
 
-        @{ URL64=$url64; Version = $version }
+        @{ 
+            URL64   = $url64;
+            Version = $version;
+        }
     }
 
 }
