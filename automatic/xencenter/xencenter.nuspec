@@ -3,7 +3,7 @@
   <metadata>
     <id>xencenter</id>
     <title>xencenter (Install)</title>
-    <version>7.2.0.5022</version>
+    <version>7.2.0</version>
     <authors>LordMike,kewalaka</authors>
     <owners>Citrix</owners>
     <summary>XenCenter for managing XenServer hypervisor hosts</summary>
