@@ -14,10 +14,3 @@ $packageArgs = @{
   registryUninstallerKey = 'Cryptomator'
 }
 Install-ChocolateyPackage @packageArgs
- 
-$installLocation = Get-AppInstallLocation $packageArgs.registryUninstallerKey
-if ($installLocation)  {
-    Write-Host "$packageName installed to '$installLocation'"
-}
-else { Write-Warning "Can't find $PackageName install location" }
-
