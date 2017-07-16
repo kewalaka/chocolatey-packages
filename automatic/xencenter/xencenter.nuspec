@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>xencenter</id>
     <title>xencenter (Install)</title>
-    <version>6.2.0</version>
+    <version>7.2.0</version>
     <authors>LordMike,kewalaka</authors>
     <owners>Citrix</owners>
     <summary>XenCenter for managing XenServer hypervisor hosts</summary>
