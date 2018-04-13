@@ -18,6 +18,9 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
 	<iconUrl>https://raw.githubusercontent.com/xenserver/xenadmin/master/Branding/Images/AppIcon.ico</iconUrl>
 	<releaseNotes>https://github.com/xenserver/xenadmin/blob/master/ChangeLog</releaseNotes>
+  <dependencies>
+    <dependency id="dotnet4.6.2" version="4.6.01590.20170129" />
+  </dependencies>  
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
