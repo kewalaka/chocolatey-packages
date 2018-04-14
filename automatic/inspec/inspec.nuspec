@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>inspec</id>
+    <version>2.1.43</version>
+    <title>inspec (Install)</title>
+    <authors>Opscode CHEF</authors>
+    <owners>lijoyoung,kewalaka</owners>
+    <summary>Inspec by CHEF - compliance as code</summary>
+    <description>InSpec is an open-source testing framework for infrastructure with a human-readable language for specifying compliance, security and other policy requirements. When compliance is code, you can integrate automated tests that check for adherence to policy into any stage of your deployment pipeline.</description>
+    <projectUrl>https://downloads.chef.io/inspec</projectUrl>
+    <packageSourceUrl>https://github.com/kewalaka/chocolatey-packages</packageSourceUrl>
+    <projectSourceUrl>https://github.com/chef/inspec</projectSourceUrl>
+    <tags>inspec CHEF admin</tags>
+    <copyright>Chef Software</copyright>
+    <licenseUrl>http://inspec.io/legal/licensing/</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>    
+    <iconUrl>https://cdn.rawgit.com/chef/inspec/7667c9cb/omnibus/resources/inspec/dmg/icon.png</iconUrl>
+    <releaseNotes>https://github.com/chef/inspec/blob/master/CHANGELOG.md</releaseNotes>
+    <docsUrl>http://inspec.io/docs</docsUrl>
+    <bugTrackerUrl>https://github.com/chef/inspec/issues</bugTrackerUrl> 
+  </metadata>
+</package>
