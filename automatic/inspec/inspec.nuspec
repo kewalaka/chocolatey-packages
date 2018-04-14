@@ -20,4 +20,7 @@
     <docsUrl>http://inspec.io/docs</docsUrl>
     <bugTrackerUrl>https://github.com/chef/inspec/issues</bugTrackerUrl> 
   </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>  
 </package>
