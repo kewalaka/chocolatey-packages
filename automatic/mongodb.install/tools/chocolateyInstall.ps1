@@ -46,6 +46,7 @@ Write-Output "MongoDB installed to $InstallPath"
 
 if ($pp['registerWindowsService'])
 {
+    # create data and log directories if they don't already exist
     New-Item -ItemType Directory $pp['dataPath'] -ErrorAction SilentlyContinue
     New-Item -ItemType Directory $pp['logPath'] -ErrorAction SilentlyContinue
    
@@ -74,9 +75,8 @@ storage:
     }    
 
     Write-Output "Registering MongoDB as a service using config file at $InstallPath\mongod.cfg"
-    # register MongoDB server as a Windows Service
     & "$InstallPath\bin\mongod.exe" --config "$InstallPath\mongod.cfg" --install
-    # start the service
+
     Write-Output "Starting MongoDB service"
     Start-Service -Name MongoDB
 
