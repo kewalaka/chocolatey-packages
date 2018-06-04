@@ -5,7 +5,7 @@
     <title>MongoDB (Install)</title>
     <version>3.6.5</version>
     <authors>MongoDB Inc</authors>
-    <owners>dtgm</owners>
+    <owners>dtgm,kewalaka</owners>
     <summary>Scalable, high-performance, open source NoSQL database written in C++</summary>
     <description>
 MongoDB (from "humongous") is a scalable, high-performance, open source NoSQL database written in C++.
@@ -22,7 +22,7 @@ Developers access documents through rich, idiomatic drivers available in all pop
     <mailingListUrl>https://groups.google.com/forum/#!forum/mongodb-user</mailingListUrl>
     <iconUrl>https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/mongodb.png</iconUrl>
     <tags>cli database nosql admin</tags>
-    <copyright>© 2011 MongoDB Inc</copyright>
+    <copyright>© 2018 MongoDB Inc</copyright>
     <licenseUrl>http://www.mongodb.org/display/DOCS/Licensing</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
@@ -36,7 +36,7 @@ The following package parameters can be set:
  * `/dataPath:` - where MongoDB stores its database files - defaults to "$env:ProgramData\MongoDB\data\db"
  * `/logPath:` - What edition to install - defaults to "$env:ProgramData\MongoDB\log"
  * `/registerWindowsService` - whether to register MongoDB as a Windows Service - default to true
- * `/installCompass` - whether to install MongoDB Compass (the official GUI) - default to true
+ * `/installCompass` - whether to install MongoDB Compass (the official GUI) - default to false as this currently breaks the MSI installer
 
 To pass parameters, use `--params "''"` (e.g. `choco install packageID [other options] --params="'/ITEM:value /ITEM2:value2 /FLAG_BOOLEAN'"`).
 To have choco remember parameters on upgrade, be sure to set `choco feature enable -n=useRememberedArgumentsForUpgrades`.

@@ -5,7 +5,7 @@
     <title>MongoDB (Portable)</title>
     <version>3.6.5</version>
     <authors>MongoDB Inc</authors>
-    <owners>dtgm</owners>
+    <owners>dtgm,kewalaka</owners>
     <summary>Scalable, high-performance, open source NoSQL database written in C++</summary>
     <description>
 MongoDB (from "humongous") is a scalable, high-performance, open source NoSQL database written in C++.
@@ -28,7 +28,7 @@ This package installs MongoDB as a Windows service and binds to localhost. Type 
     <mailingListUrl>https://groups.google.com/forum/#!forum/mongodb-user</mailingListUrl>
     <iconUrl>https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/mongodb.png</iconUrl>
     <tags>cli database nosql admin</tags>
-    <copyright>© 2011 MongoDB Inc</copyright>
+    <copyright>© 2018 MongoDB Inc</copyright>
     <licenseUrl>http://www.mongodb.org/display/DOCS/Licensing</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
