@@ -34,7 +34,7 @@ Developers access documents through rich, idiomatic drivers available in all pop
 The following package parameters can be set:
 
  * `/dataPath:` - where MongoDB stores its database files - defaults to "$env:ProgramData\MongoDB\data\db"
- * `/logPath:` - What edition to install - defaults to "$env:ProgramData\MongoDB\log"
+ * `/logPath:` - where MongoDB stores its logs - defaults to "$env:ProgramData\MongoDB\log"
  * `/registerWindowsService` - whether to register MongoDB as a Windows Service - default to true
  * `/installCompass` - whether to install MongoDB Compass (the official GUI) - default to false as this currently breaks the MSI installer
 
