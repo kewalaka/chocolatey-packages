@@ -67,9 +67,14 @@ storage:
         Add-Content -Path $configFilePath -Value $configFile
     }    
 
+    Write-Output "Registering MongoDB as a service using config file at $InstallPath\mongod.cfg"
     # register MongoDB server as a Windows Service
     & "$InstallPath\bin\mongod.exe" --config "$InstallPath\mongod.cfg" --install
     # start the service
+    Write-Output "Starting MongoDB service"
     Start-Service -Name MongoDB
 
+    # place the mongo binaries on the system PATH
+    Write-Output "Registering $InstallPath\bin\ in PATH environment variable."
+    Install-ChocolateyPath "$InstallPath\bin\" "Machine"
 }
