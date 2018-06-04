@@ -35,7 +35,7 @@ function global:au_GetLatest {
         if ($download_portablepage -ne $null)
         {        
             $download_portablepage -match 'href="([^"]*ssl-' + $version + '.zip)"'
-            $url = $Matches[1]
+            $url = $Matches[1].Replace('http','https')
             
             $url64   = $url
             return @{ URL64=$url64; Version = $version }
