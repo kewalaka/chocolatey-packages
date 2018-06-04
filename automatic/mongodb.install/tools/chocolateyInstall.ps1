@@ -1,4 +1,6 @@
 ﻿$packageName = 'monogodb.install'
+
+#region: Package parameters that can be specified
 # Allow the user to specify the data and log path, falling back to sensible defaults
 $pp = Get-PackageParameters
 if(!$pp['dataPath']) { 
@@ -16,7 +18,9 @@ if(!$pp['installCompass']) {
     $pp['installCompass'] = $false
 }
 if($pp['installCompass']) {$shouldInstallCompass = 1} else {$shouldInstallCompass = 0}
+#endregion
 
+#region: Package installation
 # enable MSI logging to find where Mongo installs itself
 $InstallLog = "$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log"
 
@@ -33,7 +37,9 @@ $packageArgs = @{
 }
 
 Install-ChocolateyPackage @packageArgs
+#endregion
 
+#region: Create a config file if one doesn't exist, install Mongo as a Windows Service & add to PATH
 # find where Mongo installed itself from the MSI log - crazy, but true
 $InstallPath = $((Get-Content $InstallLog | Select-String 'INSTALLLOCATION =') -split " = ")[1]
 Write-Output "MongoDB installed to $InstallPath"
@@ -78,3 +84,4 @@ storage:
     Write-Output "Registering $InstallPath\bin\ in PATH environment variable."
     Install-ChocolateyPath "$InstallPath\bin\" "Machine"
 }
+#endregion
