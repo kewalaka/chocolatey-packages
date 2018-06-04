@@ -7,18 +7,23 @@ if(!$pp['dataPath']) {
 if(!$pp['logPath']) { 
     $pp['logPath'] = "$env:PROGRAMDATA\MongoDB\log"
 }
+# should MongoDB be installed as a Windows Service
 if(!$pp['registerWindowsService']) { 
     $pp['registerWindowsService'] = $true
 }
+# should Compass be installed - as of 3.6.5 the MSI is not working if this is selected
+if(!$pp['installCompass']) { 
+    $pp['installCompass'] = $false
+}
+if($pp['installCompass']) {$shouldInstallCompass = 1} else {$shouldInstallCompass = 0}
 
-# enable verbose logging to find where Mongo installs itself
+# enable MSI logging to find where Mongo installs itself
 $InstallLog = "$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).install.log"
 
-# Compass causes a 1603 error when running the 3.6.0 MSI
-$silentArgs = "/quiet /qn /norestart /log `"$InstallLog`" SHOULD_INSTALL_COMPASS=0"
+$silentArgs = "/quiet /qn /norestart /log `"$InstallLog`" SHOULD_INSTALL_COMPASS=$shouldInstallCompass"
 
 $packageArgs = @{
-    packageName   = 'monogodb.install'
+    packageName   = "$packageName"
     fileType      = 'MSI'
     url64bit      = 'https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.6.5-signed.msi'
     checksum64    = 'f1e31e6ad01cd852d0a59dacf9b2ea34e64fb61977f9334338e9f16a468dec92'
@@ -37,7 +42,6 @@ if ($pp['registerWindowsService'])
 {
     New-Item -ItemType Directory $pp['dataPath'] -ErrorAction SilentlyContinue
     New-Item -ItemType Directory $pp['logPath'] -ErrorAction SilentlyContinue
-
    
     $configFilePath = "$InstallPath\mongod.cfg"
 
@@ -50,10 +54,14 @@ if ($pp['registerWindowsService'])
         
         $configFile = @"
 systemLog:
+    quiet: true
     destination: file
     path: $logPath\mongod.log
+    logAppend: true
+    logRotate: reopen
 storage:
     dbPath: $dataPath
+    directoryPerDB: true
 "@
 
         Add-Content -Path $configFilePath -Value $configFile

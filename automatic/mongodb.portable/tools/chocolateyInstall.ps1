@@ -1,51 +1,23 @@
-﻿# powershell v2 compatibility
-$psVer = $PSVersionTable.PSVersion.Major
-if ($psver -ge 3) {
-  function Get-ChildItemDir {Get-ChildItem -Directory $args}
-} else {
-  function Get-ChildItemDir {Get-ChildItem $args}
-}
+﻿$packageName = 'mongodb.portable'
 
-$packageName = '{{PackageName}}'
-$version = '{{PackageVersion}}'
-$url = '{{DownloadUrl}}'
-$checksum = '{{Checksum}}'
-$checksumType = 'sha256'
-$fileName = "mongodb-win32-x86_64-2008plus-ssl-$version"
+$packageArgs = @{
+  packageName   = "$packageName"
+  fileType      = 'MSI'
+  url64bit      = 'http://downloads.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.6.5.zip'
+  checksum64    = '3546f8d5721e91c9158133d37335d35703207af566266b248eeba6ed0db0fbc0'
+  checksumType64= 'sha256'
+  silentArgs    = $silentArgs
+  validExitCodes= @(0, 3010)
+}
 
 Write-Verbose "Default install location is `'$env:ChocolateyToolsLocation`'"
 $binRoot = Get-ToolsLocation
 
-Write-Verbose "Allow overriding install location with package parameters."
-function Parse-Parameters($arguments) {
-  $packageParameters = $env:chocolateyPackageParameters
-  Write-Host "Package parameters: $packageParameters"
-
-  if ($packageParameters) {
-    $match_pattern = "(?:\s*)(?<=[-|/])(?<name>\w*)[:|=]('((?<value>.*?)(?<!\\)')|(?<value>[\w]*))"
-
-    if ($packageParameters -match $match_pattern ) {
-      $results = $packageParameters | Select-String $match_pattern -AllMatches
-      $results.matches | % {
-        $key = $_.Groups["name"].Value.Trim();
-        $value = $_.Groups["value"].Value.Trim();
-
-        Write-Host "$key : $value";
-
-        if ($arguments.ContainsKey($key)) {
-            $arguments[$key] = $value;
-        }
-      }
-    }
-  }
-}
-
 Write-Debug "Process package parameters."
-$arguments = @{}
-$arguments["installDir"] = ""
-Parse-Parameters $arguments
-if ($arguments["installDir"]) {
-  $binRoot = $arguments["installDir"]
+$pp = Get-PackageParameters
+# where should Mongo be installed
+if(!$pp['installDir']) { 
+  $pp['installDir'] = $binRoot
 }
 
 Write-Debug "Installing to `'$binRoot`'"
@@ -58,11 +30,7 @@ if (Test-Path $mongoDaemon){
   if (Test-Path $mongoPath) {Remove-Item $mongoPath -Recurse -Force}
 }
 
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$binRoot" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
+Install-ChocolateyPackage @packageArgs
 
 $extractPath = Join-Path $binRoot $fileName                             
 Rename-Item -Path $extractPath `

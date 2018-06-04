@@ -30,8 +30,17 @@ Developers access documents through rich, idiomatic drivers available in all pop
 * [Changelog](http://docs.mongodb.org/manual/release-notes/)
 * [Alerts](https://www.mongodb.com/alerts)
 
-#### Package
-* Automatically built and uploaded by [dtgm](https://chocolatey.org/profiles/dtgm)
+#### Package Parameters
+The following package parameters can be set:
+
+ * `/dataPath:` - where MongoDB stores its database files - defaults to "$env:ProgramData\MongoDB\data\db"
+ * `/logPath:` - What edition to install - defaults to "$env:ProgramData\MongoDB\log"
+ * `/registerWindowsService` - whether to register MongoDB as a Windows Service - default to true
+ * `/installCompass` - whether to install MongoDB Compass (the official GUI) - default to true
+
+To pass parameters, use `--params "''"` (e.g. `choco install packageID [other options] --params="'/ITEM:value /ITEM2:value2 /FLAG_BOOLEAN'"`).
+To have choco remember parameters on upgrade, be sure to set `choco feature enable -n=useRememberedArgumentsForUpgrades`.
+
     </releaseNotes>
   </metadata>
   <files>

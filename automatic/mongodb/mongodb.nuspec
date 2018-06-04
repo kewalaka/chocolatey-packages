@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>{{PackageName}}</id>
+    <id>mongodb</id>
     <title>MongoDB</title>
-    <version>{{PackageVersion}}</version>
+    <version>3.6.5</version>
     <authors>MongoDB Inc</authors>
     <owners>dtgm</owners>
     <summary>Scalable, high-performance, open source NoSQL database written in C++</summary>
@@ -22,7 +22,7 @@ Developers access documents through rich, idiomatic drivers available in all pop
     <mailingListUrl>https://groups.google.com/forum/#!forum/mongodb-user</mailingListUrl>
     <iconUrl>https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/{{PackageName}}.png</iconUrl>
     <tags>cli database nosql admin</tags>
-    <copyright>© 2011 MongoDB Inc</copyright>
+    <copyright>© 2018 MongoDB Inc</copyright>
     <licenseUrl>http://www.mongodb.org/display/DOCS/Licensing</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
@@ -30,8 +30,6 @@ Developers access documents through rich, idiomatic drivers available in all pop
 * [Changelog](http://docs.mongodb.org/manual/release-notes/)
 * [Alerts](https://www.mongodb.com/alerts)
 
-#### Package
-* Automatically built and uploaded by [dtgm](https://chocolatey.org/profiles/dtgm)
     </releaseNotes>
     <dependencies>
       <dependency id="{{PackageName}}.install" version="[{{PackageVersion}}]" />
