@@ -23,7 +23,7 @@ function global:au_GetLatest {
         Write-Verbose "Parsing webpage looking for links to new release"
         $download_page -match 'href="([^"]*msi/download)"'
         $link = $Matches[1]
-        # the link coms back looking like this:
+        # the link comes back looking like this:
         # /dr/fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.6.5-signed.msi/download
         # we strip /dr/ and /download if present, and append https to the front, that gives us a URL like this:
         # https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.6.5-signed.msi       
